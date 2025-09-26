@@ -4,7 +4,7 @@ import css from "./MovieModal.module.css";
 import { useEffect } from "react";
 
 interface MovieModalProps {
-    movie: Movie,
+    movie: Movie | undefined,
     onClose: () => void,
 }
 
@@ -31,7 +31,7 @@ const MovieModal = ({movie, onClose}: MovieModalProps) => {
         }
     }, [onClose]);
 
-    return createPortal(
+    return movie && createPortal(
         <div className={css.backdrop} role="dialog" aria-modal="true">
             <div className={css.modal} onClick={handleBackdropClick} role="dialog" aria-modal="true">
                 <button className={css.closeButton} aria-label="Close modal" onClick={onClose}>
