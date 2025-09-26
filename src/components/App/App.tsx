@@ -4,7 +4,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import Loader from '../Loader/Loader';
 import MovieGrid from "../MovieGrid/MovieGrid";
 
-import { fetchMovies } from "../../services/moviesServices";
+import { fetchMovies } from "../../services/movieServices";
 import type { Movie } from "../../types/movie";
 
 import styles from './App.module.css';
