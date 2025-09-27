@@ -3,7 +3,7 @@ import css from "./MovieGrid.module.css";
 
 interface MovieGridProps {
     movies: Movie[],
-    onSelect: (id: number) => void,
+    onSelect: (movie: Movie) => void,
 }
 
 const MovieGrid = ({movies, onSelect}: MovieGridProps) => {
@@ -13,7 +13,7 @@ const MovieGrid = ({movies, onSelect}: MovieGridProps) => {
             movies.map((movie)=>{
                 return (
                     <li key={movie.id}>
-                        <div className={css.card} onClick={() => onSelect(movie.id)}>
+                        <div className={css.card} onClick={() => onSelect(movie)}>
                             <img
                                 className={css.image}
                                 src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}

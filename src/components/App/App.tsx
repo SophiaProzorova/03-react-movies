@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import SearchBar from '../SearchBar/SearchBar';
 import Loader from '../Loader/Loader';
 import MovieGrid from "../MovieGrid/MovieGrid";
@@ -18,11 +18,11 @@ function App() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
   const [movieList, setMovieList] = useState<Movie[]>([]);
-  const [selectedMovieId, setSelectedMovieId] = useState<number>();
+  const [selectedMovieId, setSelectedMovieId] = useState<number | null>(null);
   const [isMovieModalOpen, setIsMovieModalOpen] = useState<boolean>(false);
 
-  const onSelectHandler = (id: number) => {
-    setSelectedMovieId(id);
+  const onSelectHandler = (movie: Movie) => {
+    setSelectedMovieId(movie.id);
     openMovieModal();
   };
 
@@ -49,6 +49,7 @@ function App() {
 
   return (
     <div className={styles.app}>
+      <Toaster position="top-center" reverseOrder={false} />
       <SearchBar onSubmit={handleSearch} />
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}

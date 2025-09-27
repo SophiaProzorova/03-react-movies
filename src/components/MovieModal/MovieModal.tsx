@@ -32,8 +32,8 @@ const MovieModal = ({movie, onClose}: MovieModalProps) => {
     }, [onClose]);
 
     return movie && createPortal(
-        <div className={css.backdrop} role="dialog" aria-modal="true">
-            <div className={css.modal} onClick={handleBackdropClick} role="dialog" aria-modal="true">
+        <div className={css.backdrop} onClick={handleBackdropClick} role="dialog" aria-modal="true">
+            <div className={css.modal} role="dialog" aria-modal="true">
                 <button className={css.closeButton} aria-label="Close modal" onClick={onClose}>
                     &times;
                 </button>
